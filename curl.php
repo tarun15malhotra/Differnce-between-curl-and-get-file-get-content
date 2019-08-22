@@ -22,17 +22,20 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
 
 	#Post using File Get Content
 	
-	$url= 'http://lastcall.org/cdg/lastcall1/Api/get_profile.json';
-	
+	$url= 'http://lastcall.org/cdg/lastcall1/NewApi/login.json';
 	
 	$postdata = http_build_query(
-    array('user_id'=>'953')
+        array(
+		'email'=>'ashi13@gmail.com',
+		'password'=>'123456'
+		)
 	);
 
 	$opts = array('http' =>
 		array(
 			'method'  => 'POST',
 			'header'  => 'Content-Type: application/x-www-form-urlencoded',
+			'header'  => 'token: 5c3ef0a4bb90a7et43c29b17b4c431b7e6',
 			'content' => $postdata
 		)
 	);
@@ -48,18 +51,18 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
     
 	#Get using File Get Content
 	
-	/*
+	
 	$result = file_get_contents("https://jsonplaceholder.typicode.com/users");
 	$result = json_decode($result);
 	print_r($result); 
-	*/
+	
 
 
 #**************************************************************************************#
 
 	#Curl Get Request
 	
-	/*
+	
 	//$header[]='Accept:application/json';
 	//$header[]='Content-Type:application/json';
 
@@ -69,7 +72,7 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
 
 
 	$ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_POST, false);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	//curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
@@ -79,13 +82,13 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
 	$result = json_decode($result);
 	print_r($result); 
 	//print_r($result[0]->name); 
-	*/
+	
 	
 #**************************************************************************************#
 
 	#Curl Post Request
 	
-	/*
+	
 	//$header[]='Accept:application/json';
 	//$header[]='Content-Type:application/json';
 
@@ -93,7 +96,7 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
 
 	$saveArray = array('user_id'=>'953');
 	$ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $saveArray);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -103,5 +106,6 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
 	curl_close ($ch);
 	$result = json_decode($result);
 	print_r($result);
-	*/
+	
+
 #**************************************************************************************#	
