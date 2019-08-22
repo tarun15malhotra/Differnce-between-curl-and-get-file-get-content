@@ -14,8 +14,6 @@
 3. it also supports different types of protocols like http, https, ftp, gopher, telnet, dict, file, and ldap. 
 curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP form based upload, proxies, cookies.
 
-
-
 */
 
 #**************************************************************************************#
@@ -51,12 +49,10 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
     
 	#Get using File Get Content
 	
-	
 	$result = file_get_contents("https://jsonplaceholder.typicode.com/users");
 	$result = json_decode($result);
 	print_r($result); 
 	
-
 
 #**************************************************************************************#
 
