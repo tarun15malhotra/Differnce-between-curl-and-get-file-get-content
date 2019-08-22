@@ -104,4 +104,30 @@ curl also supports HTTPS certificates, HTTP POST, HTTP PUT, FTP uploading HTTP f
 	print_r($result);
 	
 
-#**************************************************************************************#	
+#**************************************************************************************#
+
+	#Curl Post Request with header token
+	
+	
+	//$header[]='Accept:application/json';
+	//$header[]='Content-Type:application/x-www-form-urlencoded';
+	
+	$header[]='token: 5c3ef0a4bb90a7et43c29b17b4c431b7e6';
+	
+	$url= 'http://lastcall.org/cdg/lastcall1/NewApi/login.json';
+	$saveArray = array('email'=>'ashi13@gmail.com','password'=>'123456');
+
+	
+	$ch = curl_init();
+    	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $saveArray);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+	$result = curl_exec ($ch);
+	curl_close ($ch);
+	$result = json_decode($result);
+	print_r($result);
+
+#**************************************************************************************#
